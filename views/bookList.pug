@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each book in bookList
+      li
+        a(href=book.url) #{book.title}
+        |  (#{book.author.name})
+
+    else
+      li There are no books.
