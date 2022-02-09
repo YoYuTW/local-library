@@ -6,6 +6,7 @@ const logger = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -16,7 +17,7 @@ const app = express();
 
 app.use(helmet());
 
-const mongoDB = process.env.MONGODB_URI || "mongodb+srv://admin:admin@cluster0.enbt3.mongodb.net/local-library?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;

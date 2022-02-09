@@ -177,7 +177,7 @@ exports.bookinstanceUpdatePost = [
         // There are errors. Render form again with sanitized values and error messages.
         Book.find({},'title').exec().then(books => {
           res.render('bookinstanceForm', {
-            title: 'Create BookInstance',
+            title: 'Update BookInstance',
             bookList: books,
             selected_book: bookinstance.book._id,
             errors: errors.array(),
